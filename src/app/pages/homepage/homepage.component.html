@@ -1,6 +1,8 @@
 <app-nav></app-nav>
 
 <div class="container mx-auto">
+
+    <!-- Hero section -->
     <div class="h-96 flex flex-col justify-center items-center w-full mx-auto">
         <!-- <h1 class="text-4xl font-semibold text-center">Express Yourself Off the Bench with Undrafted's Printed Shirts!</h1> -->
         <h1 class="text-4xl font-semibold text-center">
@@ -18,13 +20,13 @@
     <h3 class="text-xl text-center">-- New Arrivals --</h3>
     <br>
 
-    <!-- Mga new arivals -->
+    <!-- Mga new arivals section -->
     <div class="flex gap-5 justify-evenly flex-wrap" >
         
         <app-product-card *ngFor="let product of products"
         [name]="product.name" 
         [image]="product.img"
-        [price]="product.price"></app-product-card>
+        [price]="product.price"/>
 
     </div>
 </div>

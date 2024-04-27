@@ -2,36 +2,84 @@
     "users": [],
     "products": [
         {
+            "id": 1,
             "name": "Nike Air Max Pulse",
             "img": "/assets/images/men-s-shoes-clothing-accessories-removebg-preview.png",
             "price": 6395.00
         },
-
         {
+            "id": 2,
             "name": "Nike Air Force 1 High",
             "img": "/assets/images/custom-nike-air-force-1-high-by-you-shoes-removebg-preview.png",
             "price": 6395.00
         },
-
         {
+            "id": 3,
             "name": "Nike Air Force 1 Low",
             "img": "/assets/images/custom-nike-air-force-1-low-by-you-removebg-preview.png",
             "price": 6395.00
         },
-
         {
+            "id": 4,
             "name": "Nike Dunk Low Retro",
             "img": "/assets/images/dunk-low-retro-shoes-Q2Gtpp-removebg-preview.png",
             "price": 6395.00
         },
-
-        
         {
+            "id": 5,
             "name": "Nike Go FlyEase",
             "img": "/assets/images/go-flyease-easy-on-off-shoes-removebg-preview.png",
             "price": 6395.00
         }
     ],
-    "cart": [],
+    "cart": [
+        {
+            "id": 1,
+            "name": "Nike Air Force 1 Low",
+            "img": "/assets/images/custom-nike-air-force-1-low-by-you-removebg-preview.png",
+            "price": 6395.00,
+            "qty": 2
+        },
+        {
+            "id": 2,
+            "name": "Nike Dunk Low Retro",
+            "img": "/assets/images/dunk-low-retro-shoes-Q2Gtpp-removebg-preview.png",
+            "price": 6395.00,
+            "qty": 1
+
+        },
+        {
+            "id": 3,
+            "name": "Nike Go FlyEase",
+            "img": "/assets/images/go-flyease-easy-on-off-shoes-removebg-preview.png",
+            "price": 6395.00,
+            "qty": 3
+        },
+        {
+            "id": 4,
+            "name": "Nike Air Force 1 High",
+            "img": "/assets/images/custom-nike-air-force-1-high-by-you-shoes-removebg-preview.png",
+            "price": 6395.00,
+            "qty": 3
+            
+        },
+
+        {
+            "id": 5,
+            "name": "Nike Air Force 1 High",
+            "img": "/assets/images/custom-nike-air-force-1-high-by-you-shoes-removebg-preview.png",
+            "price": 6395.00,
+            "qty": 3
+            
+        },
+        {
+            "id": 6,
+            "name": "Nike Air Force 1 High",
+            "img": "/assets/images/custom-nike-air-force-1-high-by-you-shoes-removebg-preview.png",
+            "price": 6395.00,
+            "qty": 3
+            
+        }
+    ],
     "favorites": []
 }
