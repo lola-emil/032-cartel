@@ -5,7 +5,8 @@
     </div>
     <div class="flex gap-5">
         <a routerLink="/cart">
-            <svg class="pointer-events-none" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="pointer-events-none" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M2.5 4.25a.75.75 0 0 1 .75-.75h.558c.95 0 1.52.639 1.845 1.233.217.396.374.855.497 1.271A1.29 1.29 0 0 1 6.25 6h12.498c.83 0 1.43.794 1.202 1.593l-1.828 6.409a2.75 2.75 0 0 1-2.644 1.996H9.53a2.75 2.75 0 0 1-2.652-2.022l-.76-2.772-1.26-4.248-.001-.008c-.156-.567-.302-1.098-.52-1.494C4.128 5.069 3.96 5 3.809 5H3.25a.75.75 0 0 1-.75-.75Zm5.073 6.59.751 2.739c.15.542.643.919 1.206.919h5.948a1.25 1.25 0 0 0 1.202-.907L18.417 7.5H6.585l.974 3.287.014.053ZM11 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-1.5 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0ZM18 19a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-1.5 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0Z"
                     fill="#000" />
@@ -33,15 +34,39 @@
     </div>
 
     <!-- Mogawas ra ni siya kung mogamay ang screen -->
-    <div class="sm:flex flex-1 md:hidden">
-        <button>
+    <div class="sm:flex flex-1 md:hidden relative">
+        <button (click)="toggleMenu()">
+            @if (menuVisible) {
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="m4.397 4.554.073-.084a.75.75 0 0 1 .976-.073l.084.073L12 10.939l6.47-6.47a.75.75 0 1 1 1.06 1.061L13.061 12l6.47 6.47a.75.75 0 0 1 .072.976l-.073.084a.75.75 0 0 1-.976.073l-.084-.073L12 13.061l-6.47 6.47a.75.75 0 0 1-1.06-1.061L10.939 12l-6.47-6.47a.75.75 0 0 1-.072-.976l.073-.084-.073.084Z"
+                    fill="#000" />
+            </svg>
+            } @else {
             <svg class="pointer-events-none" width="24" height="24" fill="none" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M3 17h12a1 1 0 0 1 .117 1.993L15 19H3a1 1 0 0 1-.117-1.993L3 17h12H3Zm0-6h18a1 1 0 0 1 .117 1.993L21 13H3a1 1 0 0 1-.117-1.993L3 11h18H3Zm0-6h15a1 1 0 0 1 .117 1.993L18 7H3a1 1 0 0 1-.117-1.993L3 5h15H3Z"
                     fill="#000" />
             </svg>
+            }
         </button>
+
+        <!-- menu sa mobile -->
+        @if (menuVisible) {
+        <div class="border w-11/12 mx-auto p-5 absolute z-10 bg-white top-full left-0">
+            <div class="flex flex-col gap-3">
+                <a routerLink="">Home</a>
+                <a routerLink="/store">Store</a>
+                <a routerLink="/contact-us">Contact Us</a>
+            </div>
+            <br>
+            <div class="flex-col flex gap-3">
+                <a routerLink="/signin">Sign In</a>
+                <a routerLink="/signup">Sign Up</a>
+            </div>
+        </div>
+        }
     </div>
     <div class="flex-1">
     </div>

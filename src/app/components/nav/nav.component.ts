@@ -10,4 +10,9 @@ import { RouterLink } from '@angular/router';
 })
 export class NavComponent {
 
+  menuVisible = false;
+
+  toggleMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
 }
