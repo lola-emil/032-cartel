@@ -2,7 +2,7 @@
 
 <div class="container mx-auto">
     <div class="flex justify-center">
-        <div class="border w-11/12 md:w-1/2 flex rounded pl-3 items-center border-black">
+        <div class="border w-11/12 lg:w-1/2 flex rounded pl-3 items-center border-black">
             <div>
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -26,12 +26,19 @@
 
     <br>
 
-    <div class="grid grid-cols-4 gap-4">
-        <app-product-card 
-        *ngFor="let product of products"
-        [name]="product.name"
-        [image]="product.img"
-        [price]="product.price"
-        ></app-product-card>
+    <div class="flex justify-center">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+            <div class="" *ngFor="let product of products">
+                <app-product-card 
+                [name]="product.name"
+                [image]="product.img"
+                [price]="product.price"
+                ></app-product-card>
+            </div>
+        </div>
     </div>
 </div>
+
+<br>
+<br>
+<br>
