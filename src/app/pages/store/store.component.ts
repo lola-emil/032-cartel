@@ -3,6 +3,7 @@ import { NavComponent } from '../../components/nav/nav.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NgFor } from '@angular/common';
 import { ProductService } from '../../repository/product/product.service';
+import { Cart, CartService } from '../../repository/cart/cart.service';
 
 @Component({
   selector: 'app-store',
@@ -13,7 +14,10 @@ import { ProductService } from '../../repository/product/product.service';
 })
 export class StoreComponent implements OnInit {
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   products: any;
 
@@ -24,5 +28,14 @@ export class StoreComponent implements OnInit {
     });
   }
 
-
+  addToCart(cart: Cart) {
+    this.cartService.addCartItem({
+      img: cart.img,
+      name: cart.name,
+      price: cart.price,
+      qty: 1
+    }).subscribe(response => {
+      console.log(response);
+    })
+  }
 }

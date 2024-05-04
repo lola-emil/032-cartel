@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavComponent } from '../../components/nav/nav.component';
-import { CartService } from '../../repository/cart/cart.service';
+import { CartService, Cart } from '../../repository/cart/cart.service';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) {}
 
-  cartItems: any;
+  cartItems!: Cart[];
 
   ngOnInit(): void {
     this.cartService.getCartItems()
@@ -23,4 +23,25 @@ export class CartComponent implements OnInit {
     });
   }
 
+  increaseQuantity(id: number, currQuantity: number) {
+    this.cartService.updateQuantity(id, currQuantity + 1)
+    .subscribe(_response => {
+      this.ngOnInit();
+    });
+  }
+
+  decreaseQuantity(id: number, currQuantity: number) {
+    this.cartService.updateQuantity(id, currQuantity - 1)
+    .subscribe(_response => {
+      this.ngOnInit();
+    });
+  }
+
+  deleteItem(id: number) {
+    this.cartService.deleteItem(id)
+    .subscribe(response => {
+      console.log(response);
+      this.ngOnInit();
+    })
+  }
 }

@@ -30,6 +30,8 @@
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
             <div class="" *ngFor="let product of products">
                 <app-product-card 
+                (cartClicked)="addToCart(product)"
+                [id]="product.id"
                 [name]="product.name"
                 [image]="product.img"
                 [price]="product.price"
