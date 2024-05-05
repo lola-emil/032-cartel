@@ -34,13 +34,6 @@
   ],
   "cart": [
     {
-      "id": "6",
-      "name": "Nike Air Force 1 High",
-      "img": "/assets/images/custom-nike-air-force-1-high-by-you-shoes-removebg-preview.png",
-      "price": 6395,
-      "qty": 2
-    },
-    {
       "id": "a8c2",
       "img": "/assets/images/men-s-shoes-clothing-accessories-removebg-preview.png",
       "name": "Nike Air Max Pulse",

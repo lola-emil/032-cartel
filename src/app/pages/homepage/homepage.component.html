@@ -21,12 +21,15 @@
     <br>
 
     <!-- Mga new arivals section -->
-    <div class="flex gap-5 justify-evenly flex-wrap" >
-        
-        <app-product-card *ngFor="let product of products"
-        [name]="product.name" 
-        [image]="product.img"
-        [price]="product.price"/>
+    <div class="swiper w-full m">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let product of products">
+                <app-product-card 
+                [name]="product.name" 
+                [image]="product.img"
+                [price]="product.price"/>
+            </div>
+        </div>
 
     </div>
 </div>

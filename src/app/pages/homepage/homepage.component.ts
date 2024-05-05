@@ -5,6 +5,8 @@ import { ProductService } from '../../repository/product/product.service';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
+import Swiper from 'swiper';
+
 @Component({
   selector: 'app-homepage',
   standalone: true,
@@ -17,9 +19,27 @@ export class HomepageComponent implements OnInit {
 
   products: any = [];
   ngOnInit(): void {
-    this.productService.getNewArrivals().subscribe(response => {
+    this.productService.getNewArrivals()
+    .subscribe(response => {
+
+
+      const swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        loop: true,
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 10
+          }
+        }
+      });
+
+
       this.products = response;
-      console.log(this.products);
     })
   }
 
