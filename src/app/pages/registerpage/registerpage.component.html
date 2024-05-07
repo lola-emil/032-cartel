@@ -1,40 +1,92 @@
-
 <div class="flex justify-center">
-    <div class="w-96 h-screen bg-black hidden lg:block">
-        <img src="/assets/images/032-cover2.jpg" alt="" class="h-full w-full object-cover">
-    </div>
-    <div class="container h-screen flex-1 flex flex-col justify-center items-center px-5">
-        
-        <form action="">
-            <h3 class="text-2xl mb-4 font-bold">Sign Up to 032 Cartel</h3>
-            <div class="grid gap-3 grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label for="firstname" class="font-semibold">Firstname</label>
-                    <input type="text" name="firstname" class="w-full p-3 border mb-4">
-                </div>
-                <div>
-                    <label for="lastname" class="font-semibold">Lastname</label>
-                    <input type="text" name="lastname" class="w-full p-3 border mb-4">
-                </div>
-            </div>
+  <div class="w-96 h-screen bg-black hidden lg:block">
+    <img
+      src="/assets/images/032-cover2.jpg"
+      alt=""
+      class="h-full w-full object-cover"
+    />
+  </div>
+  <div
+    class="container h-screen flex-1 flex flex-col justify-center items-center px-5"
+  >
+    <form [formGroup]="userForm" (ngSubmit)="registerUser()" class="w-96">
+      <h3 class="text-2xl mb-4 font-bold">Sign Up to 032 Cartel</h3>
+      <div
+        *ngIf="errorMessage"
+        class="error-message text-red-600 text-sm font-extrabold"
+      >
+        {{ errorMessage }}
+      </div>
+      <div class="grid gap-3 grid-cols-1 md:grid-cols-2">
+        <div>
+          <label for="fname" class="font-semibold">Firstname</label>
+          <input
+            type="text"
+            formControlName="fname"
+            name="fname"
+            class="w-full p-3 border mb-4"
+          />
+        </div>
+        <div>
+          <label for="lname" class="font-semibold">Lastname</label>
+          <input
+            type="text"
+            name="lname"
+            formControlName="lname"
+            class="w-full p-3 border mb-4"
+          />
+        </div>
+      </div>
 
-            <div>
-                <label for="email" class="font-semibold">Email</label>
-                <input type="text" name="email" class="w-full p-3 border mb-4">
-            </div>
+      <div>
+        <label for="username" class="font-semibold">Username</label>
+        <input
+          type="text"
+          name="username"
+          formControlName="username"
+          class="w-full p-3 border mb-4"
+        />
+      </div>
 
-            <div>
-                <label for="password" class="font-semibold">Password</label>
-                <input type="password" name="Password" class="w-full p-3 border mb-4">
-            </div>
+      <div>
+        <label for="email" class="font-semibold">Email</label>
+        <input
+          type="text"
+          name="email"
+          formControlName="email"
+          class="w-full p-3 border mb-4"
+        />
+      </div>
 
-            <div>
-                <label for="confirm-password" class="font-semibold">Confirm Password</label>
-                <input type="password" class="w-full p-3 border mb-4">
-            </div>
+      <div>
+        <label for="password" class="font-semibold">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          name="password"
+          class="w-full p-3 border mb-4"
+        />
+      </div>
 
-            <input type="submit" value="Sign Up" class="w-full p-3 bg-black rounded text-white mb-4">
-            <p>Already have an account? <a routerLink="/signin" class="underline">Sign In</a></p>
-        </form>
-    </div>
+      <div>
+        <label for="confirmPass" class="font-semibold">Confirm Password</label>
+        <input
+          type="password"
+          formControlName="confirmPass"
+          name="confirmPass"
+          class="w-full p-3 border mb-4"
+        />
+      </div>
+
+      <input
+        type="submit"
+        value="Sign Up"
+        class="w-full p-3 bg-black rounded text-white mb-4"
+      />
+      <p>
+        Already have an account?
+        <a routerLink="/signin" class="underline">Sign In</a>
+      </p>
+    </form>
+  </div>
 </div>
