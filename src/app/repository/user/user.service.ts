@@ -41,9 +41,19 @@ export class UserService {
 
   validateAdminSession(user: {}) {
     return this.httpClient
-      .post('http://localhost:4201/api/user/validateAdminSession', JSON.stringify(user), {
-        headers: this.headers,
-      })
+      .post(
+        'http://localhost:4201/api/user/validateAdminSession',
+        JSON.stringify(user),
+        {
+          headers: this.headers,
+        }
+      )
       .pipe(catchError(this.handleError));
+  }
+
+  logoutUser() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    window.location.replace('/signin');
   }
 }

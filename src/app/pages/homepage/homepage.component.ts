@@ -19,7 +19,7 @@ export class HomepageComponent implements OnInit {
 
   products: any = [];
   ngOnInit(): void {
-    this.productService.getNewArrivals().subscribe((response) => {
+    this.productService.getNewProducts().subscribe((response) => {
       const swiper = new Swiper('.swiper', {
         direction: 'horizontal',
         loop: true,

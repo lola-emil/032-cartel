@@ -1,7 +1,8 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIf, NgClass } from '@angular/common';
 import { JwtService } from '../../service/JwtService';
+import { UserService } from '../../repository/user/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,7 +12,10 @@ import { JwtService } from '../../service/JwtService';
   styleUrl: './nav.component.css',
 })
 export class NavComponent implements OnInit {
-  constructor(private jwtService: JwtService) {}
+  constructor(
+    private jwtService: JwtService,
+    private userService: UserService
+  ) {}
   menuVisible = false;
   isSignedIn = false;
   username: any = null;
@@ -29,8 +33,6 @@ export class NavComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
-    window.location.replace('/signin');
+    this.userService.logoutUser();
   }
 }

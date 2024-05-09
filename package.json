@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve\" \"yarn run mockdb:start\"",
+    "start": "concurrently \"ng serve --open\" \"yarn run mockdb:start\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductResponse } from '../../models/products.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -7,8 +9,13 @@ import { Injectable } from '@angular/core';
 export class ProductService {
   constructor(private httpClient: HttpClient) {}
 
-  getNewArrivals() {
-    return this.httpClient.get('http://localhost:3000/products?_limit=3');
+  // getNewArrivals(): Observable<ProductResponse> {
+  //   return this.httpClient.get<ProductResponse>(
+  //     'http://localhost:4201/api/products/NewArrivals'
+  //   );
+  // }
+  getNewProducts() {
+    return this.httpClient.get('http://localhost:3000/products?_limit=10');
   }
 
   getProducts() {
@@ -16,6 +23,9 @@ export class ProductService {
   }
 
   addProduct(product: any) {
-    return this.httpClient.post('http://localhost:4201/product/add', product);
+    return this.httpClient.post(
+      'http://localhost:4201/api/products/addProduct',
+      product
+    );
   }
 }
