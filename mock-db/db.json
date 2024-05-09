@@ -34,13 +34,6 @@
   ],
   "cart": [
     {
-      "id": "a8c2",
-      "img": "/assets/images/men-s-shoes-clothing-accessories-removebg-preview.png",
-      "name": "Nike Air Max Pulse",
-      "price": 6395,
-      "qty": 2
-    },
-    {
       "id": "5cec",
       "img": "/assets/images/custom-nike-air-force-1-low-by-you-removebg-preview.png",
       "name": "Nike Air Force 1 Low",

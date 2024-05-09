@@ -8,7 +8,8 @@ export class JwtService {
   constructor() {}
 
   getToken(): string | null {
-    return localStorage.getItem('token'); // Retrieve the JWT token from local storage
+    console.log(`Token: ${localStorage.getItem('token')}`);
+    return localStorage.getItem('token');
   }
 
   getDecodedToken(): any {
@@ -26,17 +27,25 @@ export class JwtService {
 
   getUserId(): string | null {
     const decodedToken = this.getDecodedToken();
-    return decodedToken ? decodedToken.userId : null;
+    if (decodedToken) {
+      return decodedToken.userId;
+    }
+    return null;
   }
 
   getUsername(): string | null {
     const decodedToken = this.getDecodedToken();
-    console.log(`Hello ${decodedToken.username}`);
-    return decodedToken ? decodedToken.username : null;
+    if (decodedToken) {
+      return decodedToken.username;
+    }
+    return null;
   }
 
   getRole(): string | null {
     const decodedToken = this.getDecodedToken();
-    return decodedToken ? decodedToken.role : null;
+    if (decodedToken) {
+      return decodedToken.role;
+    }
+    return null;
   }
 }

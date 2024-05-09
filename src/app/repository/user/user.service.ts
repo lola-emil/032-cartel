@@ -38,4 +38,12 @@ export class UserService {
       })
       .pipe(catchError(this.handleError));
   }
+
+  validateAdminSession(user: {}) {
+    return this.httpClient
+      .post('http://localhost:4201/api/user/validateAdminSession', JSON.stringify(user), {
+        headers: this.headers,
+      })
+      .pipe(catchError(this.handleError));
+  }
 }

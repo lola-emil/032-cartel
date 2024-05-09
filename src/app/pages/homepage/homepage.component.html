@@ -1,39 +1,42 @@
 <app-nav></app-nav>
 
 <div class="container mx-auto">
-
-    <!-- Hero section -->
-    <div class="h-96 flex flex-col justify-center items-center w-full mx-auto">
-        <!-- <h1 class="text-4xl font-semibold text-center">Express Yourself Off the Bench with Undrafted's Printed Shirts!</h1> -->
-        <h1 class="text-4xl font-semibold text-center">
-            Unleash Your Style Rebellion with 032 Cartel
-        </h1>
-        <br>
-        <p class="text-xl">Streetwear of the South</p>
-        <br>
-        <div class="flex gap-5">
-            <a routerLink="/store" class="p-3 border rounded px-4 border-black">Open Store</a>
-            <a routerLink="" class="p-3 border rounded px-4 bg-black text-white">Contact Us</a>
-        </div>
+  <!-- Hero section -->
+  <div class="h-96 flex flex-col justify-center items-center w-full mx-auto">
+    <!-- <h1 class="text-4xl font-semibold text-center">Express Yourself Off the Bench with Undrafted's Printed Shirts!</h1> -->
+    <h1 class="text-4xl font-semibold text-center">
+      Unleash Your Style Rebellion with 032 Cartel
+    </h1>
+    <br />
+    <p class="text-xl">Streetwear of the South</p>
+    <br />
+    <div class="flex gap-5">
+      <a routerLink="/store" class="p-3 border rounded px-4 border-black"
+        >Open Store</a
+      >
+      <a routerLink="" class="p-3 border rounded px-4 bg-black text-white"
+        >Contact Us</a
+      >
     </div>
-    <br>
-    <h3 class="text-xl text-center">-- New Arrivals --</h3>
-    <br>
+  </div>
+  <br />
+  <h3 class="text-xl text-center">-- New Arrivals --</h3>
+  <br />
 
-    <!-- Mga new arivals section -->
-    <div class="swiper w-full m">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" *ngFor="let product of products">
-                <app-product-card 
-                [name]="product.name" 
-                [image]="product.img"
-                [price]="product.price"/>
-            </div>
-        </div>
-
+  <!-- Mga new arivals section -->
+  <div class="swiper w-full m">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let product of products">
+        <app-product-card
+          [name]="product.name"
+          [image]="product.img"
+          [price]="product.price"
+        />
+      </div>
     </div>
+  </div>
 </div>
 
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />

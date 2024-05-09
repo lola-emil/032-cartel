@@ -2,17 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getNewArrivals() {
-    return this.httpClient.get("http://localhost:3000/products?_limit=3");
+    return this.httpClient.get('http://localhost:3000/products?_limit=3');
   }
 
   getProducts() {
-    return this.httpClient.get("http://localhost:3000/products");
+    return this.httpClient.get('http://localhost:3000/products');
+  }
+
+  addProduct(product: any) {
+    return this.httpClient.post('http://localhost:4201/product/add', product);
   }
 }

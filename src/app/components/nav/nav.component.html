@@ -26,17 +26,40 @@
                     fill="#000" />
             </svg>
         </button> -->
-    <div *NgIf="isSignedIn">Hello {{ showUsername }}</div>
+    <div
+      [ngClass]="{
+        hidden: !username,
+        'md:block': username
+      }"
+    >
+      Hello
+      <a routerLink="/profile" class="hover:text-green-500 hover:font-semibold">
+        {{ username }}
+      </a>
+      <a
+        (click)="logOut()"
+        routerLink="/signin"
+        class="pl-4 text-red-700 hover:font-semibold"
+      >
+        logout
+      </a>
+    </div>
+
+    <!-- Sign In Link - Visible only when not signed in -->
     <a
       routerLink="/signin"
-      [ngClass]="[isSignedIn ? 'hidden' : 'hidden md:block']"
-      >Sign In</a
+      [ngClass]="{ hidden: username, 'md:block': !username }"
     >
+      Sign In
+    </a>
+
+    <!-- Sign Up Link - Visible only when not signed in -->
     <a
       routerLink="/signup"
-      [ngClass]="[isSignedIn ? 'hidden' : 'hidden md:block']"
-      >Sign Up</a
+      [ngClass]="{ hidden: username, 'md:block': !username }"
     >
+      Sign Up
+    </a>
   </div>
 </div>
 

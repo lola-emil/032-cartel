@@ -18,7 +18,7 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   addCartItem(data: any): Observable<Cart> {
-    return this.http.post<Cart>("http://localhost:3000/cart", data);
+    return this.http.post<Cart>("http://localhost:4201/cart", data);
   }
 
   getCartItems(): Observable<Cart[]> {

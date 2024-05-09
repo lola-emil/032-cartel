@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { UserService } from '../../repository/user/user.service';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { JwtService } from '../../service/JwtService';
 @Component({
   selector: 'app-registerpage',
   standalone: true,
@@ -11,12 +12,19 @@ import { NgIf } from '@angular/common';
   templateUrl: './registerpage.component.html',
   styleUrl: './registerpage.component.css',
 })
-export class RegisterpageComponent {
+export class RegisterpageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private jwtService: JwtService
   ) {}
+
+  ngOnInit(): void {
+    if (this.jwtService.getToken() !== null) {
+      this.router.navigate(['/']);
+    }
+  }
 
   errorMessage: string = '';
 

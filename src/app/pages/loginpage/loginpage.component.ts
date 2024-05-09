@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { UserService } from '../../repository/user/user.service';
 import {
@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgIf } from '@angular/common';
+import { JwtService } from '../../service/JwtService';
 
 @Component({
   selector: 'app-loginpage',
@@ -18,12 +19,18 @@ import { NgIf } from '@angular/common';
   templateUrl: './loginpage.component.html',
   styleUrl: './loginpage.component.css',
 })
-export class LoginpageComponent {
+export class LoginpageComponent implements OnInit {
   constructor(
     private userService: UserService,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private jwtservice: JwtService
   ) {}
+  ngOnInit(): void {
+    if (this.jwtservice.getToken() !== null) {
+      this.router.navigate(['/']);
+    }
+  }
 
   userForm = new FormGroup({
     creds: new FormControl(),
@@ -37,9 +44,9 @@ export class LoginpageComponent {
   loginUser(): void {
     this.userService.loginUser(this.userForm.value).subscribe(
       (response: any) => {
-        this.user = response;
+        this.user = response.token;
         console.log(`from component ${response}`);
-        localStorage.setItem('user', JSON.stringify(response));
+        localStorage.setItem('token', JSON.stringify(this.user));
         this.router.navigate(['/']);
       },
       (error) => {
