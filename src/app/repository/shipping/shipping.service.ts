@@ -39,7 +39,7 @@ export class ShippingService {
       .then((response) => {
         console.log(response.status);
         console.log(response.text());
-        return response
+        return response;
       })
       .catch((err) => console.error(err));
   }

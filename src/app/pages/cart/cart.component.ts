@@ -65,8 +65,4 @@ export class CartComponent implements OnInit {
     });
     return formatter.format(sum);
   }
-
-  getShippingFee() {
-    return this.shippingService.calculateShippingFee();
-  }
 }
