@@ -8,6 +8,8 @@ import { DashboardpageComponent } from './pages/admin/dashboard/dashboardpage/da
 import { ProfilepageComponent } from './pages/profilepage/profilepage.component';
 import { ProductlistpageComponent } from './pages/admin/products/productlistpage/productlistpage.component';
 import { AddproductpageComponent } from './pages/admin/products/addproductpage/addproductpage.component';
+import { AboutpageComponent } from './pages/aboutpage/aboutpage.component';
+import { InvalidComponent } from './pages/invalid/invalid.component';
 
 const brandName = '032 Cartel';
 
@@ -41,6 +43,16 @@ export const routes: Routes = [
     path: 'profile',
     component: ProfilepageComponent,
     title: `${brandName} | User Profile`,
+  },
+  {
+    path: 'about',
+    component: AboutpageComponent,
+    title: `${brandName} | About Us`,
+  },
+  {
+    path: '**',
+    component: InvalidComponent,
+    title: `${brandName} | 404`,
   },
 
   //admin pages

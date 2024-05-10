@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIf, NgClass } from '@angular/common';
 import { JwtService } from '../../service/JwtService';
 import { UserService } from '../../repository/user/user.service';
@@ -7,7 +7,7 @@ import { UserService } from '../../repository/user/user.service';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, NgIf, NgClass],
+  imports: [RouterLink, NgIf, NgClass, RouterLinkActive],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })

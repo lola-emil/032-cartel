@@ -6,6 +6,7 @@
   <div class="flex gap-5 ease-out duration-300">
     <a
       routerLink="/cart"
+      routerLinkActive="text-green-500 fill-green-400"
       (mouseenter)="showCartText()"
       (mouseleave)="hideCartText()"
     >
@@ -36,7 +37,11 @@
       }"
     >
       Hello
-      <a routerLink="/profile" class="hover:text-green-500 hover:font-semibold">
+      <a
+        routerLink="/profile"
+        class="hover:text-green-500 hover:font-semibold"
+        routerLinkActive="text-green-500 font-semibold"
+      >
         {{ username }}
       </a>
       <a
@@ -69,10 +74,19 @@
 <!-- nav -->
 <div class="flex container mx-auto mb-5 md:px-0 px-5">
   <div class="md:flex flex-1 gap-10 hidden">
-    <a routerLink="" routerLinkActive="font-bold text-red-700" class="">Home</a>
+    <a
+      routerLink="/"
+      routerLinkActive="font-bold text-red-700"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
     <a routerLink="/store" routerLinkActive="font-bold text-red-700">Store</a>
-    <a routerLink="" routerLinkActive="text-red-700">About Us</a>
-    <a routerLink="" routerLinkActive="text-red-700">Contact Us</a>
+    <a routerLink="/about" routerLinkActive="font-bold text-red-700"
+      >About Us</a
+    >
+    <a routerLink="/contact" routerLinkActive="font-bold text-red-700"
+      >Contact Us</a
+    >
   </div>
 
   <!-- Mogawas ra ni siya kung mogamay ang screen -->
