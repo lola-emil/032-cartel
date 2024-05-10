@@ -1,58 +1,83 @@
 <app-nav></app-nav>
 
-<br>
+<br />
 <div class="container mx-auto w-10/12">
-    <br>
-    <div class="grid grid-cols-12 gap-10 justify-items-center-center">
-        <div class="col-span-12 lg:col-span-8">
-            <div class="border-b border-black mb-5 p-3 flex flex-col md:flex-row md:justify-between" *ngFor="let item of cartItems">
-                <div class="gap-4 flex items-center">
-                    <img [src]="item.img" class="w-28">
-                    <div>
-                        <p class="font-semibold text-sm">{{item.name}}</p>
-                        <p class="text-sm">
-                            PHP {{item.qty * item.price}}
-                        </p>
-                    </div>
-                </div>
-
-                <div class="gap-4 flex items-center">
-                    <div class="md:flex-1 flex justify-end gap-5 items-center">
-                        <div class="border-black border p-0 flex items-center justify-center">
-                            <button [disabled]="item.qty == 1" class="py-1 px-3 border-r border-black" (click)="decreaseQuantity(item.id, item.qty)">-</button>
-                            <span class="text-center py-1 px-3">{{item.qty}}</span>
-                            <button class="py-1 px-3 border-l border-black" (click)="increaseQuantity(item.id, item.qty)">+</button>
-                        </div>
-                        <button (click)="deleteItem(item.id)">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 1.75a3.25 3.25 0 0 1 3.245 3.066L15.25 5h5.25a.75.75 0 0 1 .102 1.493L20.5 6.5h-.796l-1.28 13.02a2.75 2.75 0 0 1-2.561 2.474l-.176.006H8.313a2.75 2.75 0 0 1-2.714-2.307l-.023-.174L4.295 6.5H3.5a.75.75 0 0 1-.743-.648L2.75 5.75a.75.75 0 0 1 .648-.743L3.5 5h5.25A3.25 3.25 0 0 1 12 1.75Zm6.197 4.75H5.802l1.267 12.872a1.25 1.25 0 0 0 1.117 1.122l.127.006h7.374c.6 0 1.109-.425 1.225-1.002l.02-.126L18.196 6.5ZM13.75 9.25a.75.75 0 0 1 .743.648L14.5 10v7a.75.75 0 0 1-1.493.102L13 17v-7a.75.75 0 0 1 .75-.75Zm-3.5 0a.75.75 0 0 1 .743.648L11 10v7a.75.75 0 0 1-1.493.102L9.5 17v-7a.75.75 0 0 1 .75-.75Zm1.75-6a1.75 1.75 0 0 0-1.744 1.606L10.25 5h3.5A1.75 1.75 0 0 0 12 3.25Z"
-                                    fill="#000" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+  <br />
+  <div class="grid grid-cols-12 gap-10 justify-items-center-center">
+    <div class="col-span-12 lg:col-span-8">
+      <div
+        class="border-b border-black mb-5 p-3 flex flex-col md:flex-row md:justify-between"
+        *ngFor="let item of cartItems"
+      >
+        <div class="gap-4 flex items-center">
+          <img [src]="item.img" class="w-28" />
+          <div>
+            <p class="font-semibold text-sm">{{ item.name }}</p>
+            <p class="text-sm">PHP {{ item.qty * item.price }}</p>
+          </div>
         </div>
 
-        <div class="col-span-12 lg:col-span-4">
-            <div class="lg:border rounded border-black w-full p-3 sticky top-10">
-                <h3 class="font-semibold text-xl">Order Summary</h3>
-                <br>
-                <div class="flex justify-between">
-                    <p class="text-lg">Subtotal</p>
-                    <span>100</span>
-                </div>
-                <div class="flex justify-between">
-                    <p class="font-semibold text-lg">Total</p>
-                    <span>100</span>
-                </div>
-                <br>
-                <button class="bg-black rounded text-white p-3 w-full">Checkout</button>
+        <div class="gap-4 flex items-center">
+          <div class="md:flex-1 flex justify-end gap-5 items-center">
+            <div
+              class="border-black border p-0 flex items-center justify-center"
+            >
+              <button
+                [disabled]="item.qty == 1"
+                class="py-1 px-3 border-r border-black hover:bg-red-500"
+                (click)="decreaseQuantity(item.id, item.qty)"
+              >
+                -
+              </button>
+              <span class="text-center py-1 px-3">{{ item.qty }}</span>
+              <button
+                class="py-1 px-3 border-l border-black hover:bg-green-300"
+                (click)="increaseQuantity(item.id, item.qty)"
+              >
+                +
+              </button>
             </div>
+            <button (click)="deleteItem(item.id)">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                class="fill-black hover:fill-red-800 rounded-lg"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 1.75a3.25 3.25 0 0 1 3.245 3.066L15.25 5h5.25a.75.75 0 0 1 .102 1.493L20.5 6.5h-.796l-1.28 13.02a2.75 2.75 0 0 1-2.561 2.474l-.176.006H8.313a2.75 2.75 0 0 1-2.714-2.307l-.023-.174L4.295 6.5H3.5a.75.75 0 0 1-.743-.648L2.75 5.75a.75.75 0 0 1 .648-.743L3.5 5h5.25A3.25 3.25 0 0 1 12 1.75Zm6.197 4.75H5.802l1.267 12.872a1.25 1.25 0 0 0 1.117 1.122l.127.006h7.374c.6 0 1.109-.425 1.225-1.002l.02-.126L18.196 6.5ZM13.75 9.25a.75.75 0 0 1 .743.648L14.5 10v7a.75.75 0 0 1-1.493.102L13 17v-7a.75.75 0 0 1 .75-.75Zm-3.5 0a.75.75 0 0 1 .743.648L11 10v7a.75.75 0 0 1-1.493.102L9.5 17v-7a.75.75 0 0 1 .75-.75Zm1.75-6a1.75 1.75 0 0 0-1.744 1.606L10.25 5h3.5A1.75 1.75 0 0 0 12 3.25Z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+
+    <div class="col-span-12 lg:col-span-4">
+      <div class="lg:border rounded border-black w-full p-3 sticky top-10">
+        <h3 class="font-semibold text-xl">Order Summary</h3>
+        <br />
+        <div class="flex justify-between">
+          <p class="text-lg">Subtotal</p>
+          <span>{{ getTotal(total) }}</span>
+
+          <span>Shipping fee: {{ getShippingFee() }}</span>
+        </div>
+        <div class="flex justify-between">
+          <p class="font-semibold text-lg">Total</p>
+          <span>{{ getTotal(total) }}</span>
+        </div>
+        <br />
+        <button
+          class="bg-black rounded text-white p-3 w-full hover:bg-green-400 hover:font-bold hover:text-black hover:text-md ease-out duration-300"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<br>
+<br />

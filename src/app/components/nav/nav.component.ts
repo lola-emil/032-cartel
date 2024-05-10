@@ -35,4 +35,17 @@ export class NavComponent implements OnInit {
   logOut() {
     this.userService.logoutUser();
   }
+
+  showCartText() {
+    let text = document.getElementsByClassName('cart-text')[0];
+    let logo = document.getElementsByClassName('cart-logo')[0];
+    logo.classList.add('hidden');
+    text.classList.remove('hidden');
+  }
+  hideCartText() {
+    let text = document.getElementsByClassName('cart-text')[0];
+    let logo = document.getElementsByClassName('cart-logo')[0];
+    text.classList.add('hidden');
+    logo.classList.remove('hidden');
+  }
 }

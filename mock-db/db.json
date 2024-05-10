@@ -34,13 +34,6 @@
   ],
   "cart": [
     {
-      "id": "5cec",
-      "img": "/assets/images/custom-nike-air-force-1-low-by-you-removebg-preview.png",
-      "name": "Nike Air Force 1 Low",
-      "price": 6395,
-      "qty": 2
-    },
-    {
       "id": "d6c6",
       "img": "/assets/images/go-flyease-easy-on-off-shoes-removebg-preview.png",
       "name": "Nike Go FlyEase",
