@@ -12,35 +12,30 @@ import Swiper from 'swiper';
   standalone: true,
   imports: [NavComponent, ProductCardComponent, NgFor, RouterLink],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrl: './homepage.component.css',
 })
 export class HomepageComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   products: any = [];
   ngOnInit(): void {
-    this.productService.getNewArrivals()
-    .subscribe(response => {
-
-
+    this.productService.getNewProducts().subscribe((response) => {
       const swiper = new Swiper('.swiper', {
         direction: 'horizontal',
         loop: true,
         breakpoints: {
           640: {
             slidesPerView: 1,
-            spaceBetween: 10
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 10
-          }
-        }
+            spaceBetween: 10,
+          },
+        },
       });
 
-
       this.products = response;
-    })
+    });
   }
-
 }
